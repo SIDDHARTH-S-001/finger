@@ -1,0 +1,23 @@
+new_finger_controller:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Position Controllers --------------------------------------
+  mcp_yaw_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: mcp_yaw
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  mcp_pitch_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: mcp_pitch
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  pip_pitch_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: pip_pitch
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  dip_pitch_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: dip_pitch
+    pid: {p: 100.0, i: 0.01, d: 10.0}

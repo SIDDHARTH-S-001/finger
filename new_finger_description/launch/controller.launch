@@ -1,0 +1,9 @@
+<launch>
+
+<rosparam file="$(find new_finger_description)/launch/controller.yaml" command="load"/>
+<node args="mcp_yaw_position_controller mcp_pitch_position_controller pip_pitch_position_controller dip_pitch_position_controller joint_state_controller " name="controller_spawner" ns="new_finger" output="screen" pkg="controller_manager" respawn="false" type="spawner"/>
+<node name="robot_state_publisher" output="screen" pkg="robot_state_publisher" respawn="false" type="robot_state_publisher">
+  <remap from="/joint_states" to="/new_finger/joint_states"/>
+</node>
+
+</launch>
